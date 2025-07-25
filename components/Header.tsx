@@ -118,11 +118,11 @@ export default function Header() {
               />
               <span
                 className={`text-xs font-medium tracking-wide ${typeof window !== "undefined" && window.location.pathname === "/"
-                      ? isScrolled
-                        ? "text-black hover:text-gray-600"
-                        : "text-white hover:text-gray-300"
-                      : "text-black hover:text-gray-600"
-                    }`}
+                  ? isScrolled
+                    ? "text-black hover:text-gray-600"
+                    : "text-white hover:text-gray-300"
+                  : "text-black hover:text-gray-600"
+                  }`}
               >
                 Restore &bull; Rejuvenate &bull; Radiate
               </span>
@@ -169,23 +169,23 @@ export default function Header() {
                   transition={{ duration: 0.6 }}
                   onClick={() => setIsShopDropdownOpen(!isShopDropdownOpen)}
                   className={`flex items-center space-x-1 text-sm font-medium tracking-widest uppercase transition-all duration-300 relative group ${typeof window !== "undefined" && window.location.pathname === "/"
-                      ? isScrolled
-                        ? "text-black hover:text-gray-600"
-                        : "text-white hover:text-gray-300"
-                      : "text-black hover:text-gray-600"
+                    ? isScrolled
+                      ? "text-black hover:text-gray-600"
+                      : "text-white hover:text-gray-300"
+                    : "text-black hover:text-gray-600"
                     }`}
                 >
-                  <span>Shop</span>
+                  <span className="font-bold">Shop</span>
                   <ChevronDown
                     size={16}
                     className={`transition-transform duration-300 ${isShopDropdownOpen ? "rotate-180" : ""}`}
                   />
                   <span
                     className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${typeof window !== "undefined" && window.location.pathname === "/"
-                        ? isScrolled
-                          ? "bg-black"
-                          : "bg-white"
-                        : "bg-black"
+                      ? isScrolled
+                        ? "bg-black"
+                        : "bg-white"
+                      : "bg-black"
                       }`}
                   ></span>
                 </motion.button>
@@ -244,20 +244,20 @@ export default function Header() {
                 >
                   <Link
                     href={link.href}
-                    className={`text-sm font-medium tracking-widest uppercase transition-all duration-300 relative group ${typeof window !== "undefined" && window.location.pathname === "/"
-                        ? isScrolled
-                          ? "text-black hover:text-gray-600"
-                          : "text-white hover:text-gray-300"
-                        : "text-black hover:text-gray-600"
+                    className={`text-sm font-bold tracking-widest uppercase transition-all duration-300 relative group ${typeof window !== "undefined" && window.location.pathname === "/"
+                      ? isScrolled
+                        ? "text-black hover:text-gray-600"
+                        : "text-white hover:text-gray-300"
+                      : "text-black hover:text-gray-600"
                       }`}
                   >
                     {link.label}
                     <span
                       className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${typeof window !== "undefined" && window.location.pathname === "/"
-                          ? isScrolled
-                            ? "bg-black"
-                            : "bg-white"
-                          : "bg-black"
+                        ? isScrolled
+                          ? "bg-black"
+                          : "bg-white"
+                        : "bg-black"
                         }`}
                     ></span>
                   </Link>
@@ -270,7 +270,7 @@ export default function Header() {
               <Link href="/" className="flex flex-col items-center">
                 <Image
                   src={typeof window !== "undefined" && window.location.pathname === "/"
-                      ? isScrolled ? "/kishmi-logo.png" : "/Kishmi-white.png" :"/kishmi-logo.png" }
+                    ? isScrolled ? "/kishmi-logo.png" : "/Kishmi-white.png" : "/kishmi-logo.png"}
                   alt="Kishmi Cosmetics Logo"
                   width={220}
                   height={60}
@@ -278,10 +278,10 @@ export default function Header() {
                 />
                 <span
                   className={`text-base font-medium tracking-wide ${typeof window !== "undefined" && window.location.pathname === "/"
-                      ? isScrolled
-                        ? "text-black hover:text-gray-600"
-                        : "text-white hover:text-gray-300"
-                      : "text-black hover:text-gray-600"
+                    ? isScrolled
+                      ? "text-black hover:text-gray-600"
+                      : "text-white hover:text-gray-300"
+                    : "text-black hover:text-gray-600"
                     }`}
                 >
                   Restore &bull; Rejuvenate &bull; Radiate
@@ -295,11 +295,11 @@ export default function Header() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setSearchOpen(true)}
-                className={`p-3 rounded-full transition-all duration-300${typeof window !== "undefined" && window.location.pathname === "/"
-                    ? isScrolled
-                      ? "hover:bg-gray-100 text-black"
-                      : "hover:bg-white/20 text-white"
-                    : "hover:bg-gray-100 text-black"
+                className={`p-3 rounded-full font-bold transition-all duration-300${typeof window !== "undefined" && window.location.pathname === "/"
+                  ? isScrolled
+                    ? "hover:bg-gray-100 text-black"
+                    : "hover:bg-white/20 text-white"
+                  : "hover:bg-gray-100 text-black"
                   }`}
               >
                 <Search size={20} />
@@ -310,11 +310,11 @@ export default function Header() {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setUserMenuOpen(!isUserMenuOpen)}
-                  className={`p-3 rounded-full transition-all duration-300 ${typeof window !== "undefined" && window.location.pathname === "/"
-                      ? isScrolled
-                        ? "hover:bg-gray-100 text-black"
-                        : "hover:bg-white/20 text-white"
-                      : "hover:bg-gray-100 text-black"
+                  className={`p-3 rounded-full font-bold transition-all duration-300 ${typeof window !== "undefined" && window.location.pathname === "/"
+                    ? isScrolled
+                      ? "hover:bg-gray-100 text-black"
+                      : "hover:bg-white/20 text-white"
+                    : "hover:bg-gray-100 text-black"
                     }`}
                 >
                   <User size={20} />
@@ -388,16 +388,16 @@ export default function Header() {
                 <motion.button
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`p-3 rounded-full transition-all duration-300 relative ${typeof window !== "undefined" && window.location.pathname === "/"
-                      ? isScrolled
-                        ? "hover:bg-gray-100 text-black"
-                        : "hover:bg-white/20 text-white"
-                      : "hover:bg-gray-100 text-black"
+                  className={`p-3 rounded-full font-bold transition-all duration-300 relative ${typeof window !== "undefined" && window.location.pathname === "/"
+                    ? isScrolled
+                      ? "hover:bg-gray-100 text-black"
+                      : "hover:bg-white/20 text-white"
+                    : "hover:bg-gray-100 text-black"
                     }`}
                 >
                   <Heart size={20} />
                   {wishlistCount > 0 && (
-                    <span className="absolute -top-1 -right-1 bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-medium">
+                    <span className="absolute -top-1  -right-1 bg-black text-white text-xs rounded-full w-6 h-6 flex items-center justify-center font-medium">
                       {wishlistCount}
                     </span>
                   )}
@@ -408,11 +408,11 @@ export default function Header() {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setCartOpen(true)}
-                className={`p-3 rounded-full transition-all duration-300 relative $${typeof window !== "undefined" && window.location.pathname === "/"
-                    ? isScrolled
-                      ? "hover:bg-gray-100 text-black"
-                      : "hover:bg-white/20 text-white"
-                    : "hover:bg-gray-100 text-black"
+                className={`p-3 rounded-full font-bold transition-all duration-300 relative $${typeof window !== "undefined" && window.location.pathname === "/"
+                  ? isScrolled
+                    ? "hover:bg-gray-100 text-black"
+                    : "hover:bg-white/20 text-white"
+                  : "hover:bg-gray-100 text-black"
                   }`}
               >
                 <ShoppingBag size={20} />
@@ -469,7 +469,7 @@ export default function Header() {
                     >
                       <Link
                         href={link.href}
-                        className="text-lg font-medium tracking-wide text-white hover:text-gray-300 transition-colors duration-300 block"
+                        className="text-lg font-bold tracking-wide text-white hover:text-gray-300 transition-colors duration-300 block"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {link.label}
