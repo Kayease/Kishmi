@@ -45,7 +45,7 @@ export default function ProductCarousel({ featuredProducts, handleAddToCart, han
     <section className="bg-white relative overflow-hidden z-10 min-h-screen flex items-center justify-center">
       <div className="container-max section-padding w-full">
         <motion.div
-          className="text-center mb-12 sm:mb-16 lg:mb-20"
+          className="text-center mb-12 sm:mb-16 lg:mb-12 pt-12"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -60,7 +60,7 @@ export default function ProductCarousel({ featuredProducts, handleAddToCart, han
           >
             ✨ Product Showcase
           </motion.span>
-          <h2 className="font-playfair text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+          <h2 className="font-playfair text-2xl sm:text-3xl lg:text-4xl font-bold  bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
             Discover Excellence
           </h2>
         </motion.div>
@@ -134,7 +134,7 @@ export default function ProductCarousel({ featuredProducts, handleAddToCart, han
                 <span className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-sm font-medium rounded-full uppercase tracking-wide mb-4">
                   {currentProduct.category}
                 </span>
-                <h3 className="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+                <h3 className="font-playfair text-xl sm:text-2xl lg:text-3xl font-bold mb-4 text-gray-900">
                   {currentProduct.name}
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">{currentProduct.description}</p>
@@ -167,7 +167,7 @@ export default function ProductCarousel({ featuredProducts, handleAddToCart, han
               <div className="flex flex-col sm:flex-row gap-4">
                 <motion.button
                   onClick={() => handleAddToCart(currentProduct)}
-                  className="flex-1 bg-gradient-to-r from-gray-900 to-gray-700 text-white px-8 py-4 font-semibold tracking-wider text-base uppercase transition-all duration-300 hover:bg-gray-800 rounded-lg shadow-lg"
+                  className="flex-1 bg-gradient-to-r from-gray-900 to-gray-700 text-white px-6 py-2 font-semibold tracking-wider text-base uppercase transition-all duration-300 hover:bg-gray-800 rounded-lg shadow-lg"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >
@@ -175,7 +175,7 @@ export default function ProductCarousel({ featuredProducts, handleAddToCart, han
                 </motion.button>
                 <motion.button
                   onClick={() => handleQuickView(currentProduct)}
-                  className="flex-1 border-2 border-gray-900 text-gray-900 px-8 py-4 font-semibold tracking-wider text-base uppercase transition-all duration-300 hover:bg-gray-900 hover:text-white rounded-lg shadow-lg"
+                  className="flex-1 border-2 border-gray-900 text-gray-900 px-6 py-2 font-semibold tracking-wider text-base uppercase transition-all duration-300 hover:bg-gray-900 hover:text-white rounded-lg shadow-lg"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                 >

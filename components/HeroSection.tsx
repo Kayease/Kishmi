@@ -45,11 +45,11 @@ export default function HeroSection() {
         />
       </div>
       <motion.div
-        className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        className="relative z-10 text-center text-white max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24"
         style={{ opacity, scale: textScale }}
       >
         <motion.div
-          className="mb-6 sm:mb-8 pt-16"
+          className="mb-6 sm:mb-0"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
@@ -59,7 +59,7 @@ export default function HeroSection() {
           </span>
         </motion.div>
         <motion.h1
-          className="font-playfair text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold mb-6 sm:mb-8 lg:mb-12 tracking-wider leading-none"
+          className="font-playfair text-5xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] font-bold mb-6 sm:mb-8 lg:mb-8 tracking-wider leading-none"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7 }}
