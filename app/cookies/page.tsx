@@ -178,7 +178,7 @@ export default function CookiesPage() {
             </motion.div>
 
             <motion.h1
-              className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 bg-clip-text text-transparent leading-tight"
+              className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 bg-clip-text text-transparent leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -192,11 +192,11 @@ export default function CookiesPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
                 Sweet Transparency About Our Cookies
               </p>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                Learn how we use cookies to enhance your browsing experience and protect your privacy.
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                We use cookies to improve user experience and analytics. By continuing to browse our site, you consent to the use of cookies.
               </p>
               <p className="text-lg text-gray-500">
                 Last updated: January 2024
@@ -233,7 +233,7 @@ export default function CookiesPage() {
             >
               ⚙️ Customize
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 bg-clip-text text-transparent">
               Cookie Preferences
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -268,7 +268,7 @@ export default function CookiesPage() {
                             <cookie.icon size={24} />
                           </motion.div>
                           <div>
-                            <h3 className="font-playfair text-xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                            <h3 className="font-montserrat text-xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                               {cookie.title}
                             </h3>
                             {cookie.required && (
@@ -378,7 +378,7 @@ export default function CookiesPage() {
             >
               📋 Details
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-amber-800 via-orange-700 to-amber-800 bg-clip-text text-transparent">
               Cookie Details
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -398,10 +398,10 @@ export default function CookiesPage() {
                 <table className="w-full">
                   <thead className="bg-gradient-to-r from-amber-50 to-orange-50">
                     <tr>
-                      <th className="px-8 py-6 text-left font-playfair text-lg font-bold text-gray-900">Cookie Name</th>
-                      <th className="px-8 py-6 text-left font-playfair text-lg font-bold text-gray-900">Purpose</th>
-                      <th className="px-8 py-6 text-left font-playfair text-lg font-bold text-gray-900">Duration</th>
-                      <th className="px-8 py-6 text-left font-playfair text-lg font-bold text-gray-900">Type</th>
+                      <th className="px-8 py-6 text-left font-montserrat text-lg font-bold text-gray-900">Cookie Name</th>
+                      <th className="px-8 py-6 text-left font-montserrat text-lg font-bold text-gray-900">Purpose</th>
+                      <th className="px-8 py-6 text-left font-montserrat text-lg font-bold text-gray-900">Duration</th>
+                      <th className="px-8 py-6 text-left font-montserrat text-lg font-bold text-gray-900">Type</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -463,7 +463,7 @@ export default function CookiesPage() {
               <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-8">
                 <Cookie size={32} />
               </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">What Are Cookies?</h2>
+              <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">What Are Cookies?</h2>
               <p className="text-xl text-amber-100 leading-relaxed">
                 Cookies are small text files that are stored on your device when you visit our website. 
                 They help us provide you with a better, more personalized experience.
@@ -482,7 +482,7 @@ export default function CookiesPage() {
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                   <Zap size={24} />
                 </div>
-                <h3 className="font-playfair text-2xl font-bold mb-4">How We Use Cookies</h3>
+                <h3 className="font-montserrat text-2xl font-bold mb-4">How We Use Cookies</h3>
                 <ul className="text-amber-100 space-y-3">
                   <li className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-amber-300 rounded-full mt-2 flex-shrink-0" />
@@ -514,7 +514,7 @@ export default function CookiesPage() {
                 <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
                   <Globe size={24} />
                 </div>
-                <h3 className="font-playfair text-2xl font-bold mb-4">Managing Cookies</h3>
+                <h3 className="font-montserrat text-2xl font-bold mb-4">Managing Cookies</h3>
                 <ul className="text-amber-100 space-y-3">
                   <li className="flex items-start space-x-3">
                     <div className="w-2 h-2 bg-amber-300 rounded-full mt-2 flex-shrink-0" />
@@ -548,8 +548,8 @@ export default function CookiesPage() {
                 If you have any questions about our use of cookies, please don't hesitate to contact us.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <span className="text-amber-200"><strong>Email:</strong> privacy@kishmi.com</span>
-                <span className="text-amber-200"><strong>Phone:</strong> +1 (555) 123-4567</span>
+                <span className="text-amber-200"><strong>Email:</strong> care@kishmi.in</span>
+                <span className="text-amber-200"><strong>Response Time:</strong> Within 24 hours</span>
               </div>
             </motion.div>
           </div>

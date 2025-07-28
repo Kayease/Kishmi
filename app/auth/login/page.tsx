@@ -19,23 +19,35 @@ export default function LoginPage() {
   })
   const [isLoading, setIsLoading] = useState(false)
 
-  const { setUser } = useStore()
+  const { login, loginAsAdmin, addToast } = useStore()
   const router = useRouter()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
 
-    // Simulate login
+    // Simulate login delay
     setTimeout(() => {
-      setUser({
-        id: "1",
-        name: "Sarah Johnson",
-        email: formData.email,
-        avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      })
+      const success = login(formData.email, formData.password)
+      
+      if (success) {
+        addToast({
+          type: "success",
+          title: "Login Successful!",
+          description: "Welcome back to KISHMI",
+          duration: 3000,
+        })
+        router.push("/")
+      } else {
+        addToast({
+          type: "error",
+          title: "Login Failed",
+          description: "Invalid email or password. Please try again.",
+          duration: 4000,
+        })
+      }
+      
       setIsLoading(false)
-      router.push("/")
     }, 1500)
   }
 
@@ -183,6 +195,27 @@ export default function LoginPage() {
             <div className="flex items-center justify-center space-x-2 text-xs text-gray-500">
               <Shield size={16} />
               <span>Your information is protected with SSL encryption</span>
+            </div>
+
+            {/* Quick Admin Login for Testing */}
+            <div className="mt-6 pt-6 border-t border-gray-200">
+              <p className="text-center text-sm text-gray-500 mb-3">Quick Test Login</p>
+              <button
+                type="button"
+                onClick={() => {
+                  loginAsAdmin()
+                  addToast({
+                    type: "success",
+                    title: "Admin Login Successful!",
+                    description: "Welcome back, Admin",
+                    duration: 3000,
+                  })
+                  router.push("/")
+                }}
+                className="w-full bg-red-600 text-white py-2 rounded-lg font-medium tracking-wide hover:bg-red-700 transition-colors duration-200 text-sm"
+              >
+                Login as Admin (Test)
+              </button>
             </div>
           </form>
         </motion.div>

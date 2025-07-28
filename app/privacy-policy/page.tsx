@@ -7,6 +7,7 @@ export default function PrivacyPolicyPage() {
     {
       title: "Information We Collect",
       content: [
+        "We collect your information (name, contact, address, payment details) solely to process and deliver your order.",
         "Personal information you provide when creating an account, making a purchase, or contacting us",
         "Payment information processed securely through our payment partners",
         "Usage data and analytics to improve our website and services",
@@ -27,6 +28,7 @@ export default function PrivacyPolicyPage() {
     {
       title: "Information Sharing",
       content: [
+        "Your data is stored securely and is never shared with third-party marketers.",
         "We do not sell, trade, or rent your personal information to third parties",
         "We may share information with trusted service providers who assist in our operations",
         "Information may be disclosed if required by law or to protect our rights",
@@ -45,6 +47,7 @@ export default function PrivacyPolicyPage() {
     {
       title: "Your Rights",
       content: [
+        "You may request deletion of your data by emailing us.",
         "Access and review your personal information",
         "Request corrections to inaccurate information",
         "Delete your account and associated data",
@@ -65,7 +68,7 @@ export default function PrivacyPolicyPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="font-playfair text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
+            <h1 className="font-montserrat text-4xl md:text-5xl font-bold mb-4">Privacy Policy</h1>
             <p className="text-gray-600 text-lg">Last updated: January 2024</p>
             <p className="text-gray-600 mt-4">
               At KISHMI, we are committed to protecting your privacy and ensuring the security of your personal
@@ -94,7 +97,7 @@ export default function PrivacyPolicyPage() {
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
                   >
-                    <h2 className="font-playfair text-2xl font-bold mb-6 text-black">{section.title}</h2>
+                    <h2 className="font-montserrat text-2xl font-bold mb-6 text-black">{section.title}</h2>
                     <ul className="space-y-3">
                       {section.content.map((item, itemIndex) => (
                         <li key={itemIndex} className="flex items-start space-x-3 text-gray-600">
@@ -113,19 +116,16 @@ export default function PrivacyPolicyPage() {
                   viewport={{ once: true }}
                   className="bg-gray-50 p-8 rounded-lg"
                 >
-                  <h2 className="font-playfair text-2xl font-bold mb-4 text-black">Contact Us</h2>
+                  <h2 className="font-montserrat text-2xl font-bold mb-4 text-black">Contact Us</h2>
                   <p className="text-gray-600 leading-relaxed mb-4">
                     If you have any questions about this Privacy Policy or our data practices, please contact us:
                   </p>
                   <div className="space-y-2 text-gray-600">
                     <p>
-                      <strong>Email:</strong> privacy@kishmi.com
+                      <strong>Email:</strong> care@kishmi.in
                     </p>
                     <p>
-                      <strong>Phone:</strong> +1 (555) 123-4567
-                    </p>
-                    <p>
-                      <strong>Address:</strong> 123 Beauty Avenue, New York, NY 10001
+                      <strong>Response Time:</strong> Within 24 hours
                     </p>
                   </div>
                 </motion.div>

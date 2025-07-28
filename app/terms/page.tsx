@@ -9,6 +9,7 @@ export default function TermsPage() {
       title: "Acceptance of Terms",
       icon: FileText,
       content: [
+        "By using our website, you agree to follow Indian e-commerce and consumer protection laws.",
         "By accessing and using the KISHMI website, you accept and agree to be bound by the terms and provision of this agreement.",
         "If you do not agree to abide by the above, please do not use this service.",
         "These terms apply to all visitors, users, and others who access or use the service.",
@@ -34,7 +35,7 @@ export default function TermsPage() {
         "We strive to provide accurate product information, including descriptions, prices, and availability.",
         "However, we do not warrant that product descriptions or other content is accurate, complete, reliable, current, or error-free.",
         "All products are subject to availability and we reserve the right to discontinue any product at any time.",
-        "Prices are subject to change without notice.",
+        "Prices, offers, and availability are subject to change without prior notice.",
       ],
     },
     {
@@ -44,7 +45,7 @@ export default function TermsPage() {
         "All orders are subject to acceptance and availability.",
         "We reserve the right to refuse or cancel any order for any reason at any time.",
         "Payment must be received before products are shipped.",
-        "We accept major credit cards and other payment methods as displayed during checkout.",
+        "We accept major credit cards, UPI, net banking, and Cash on Delivery (COD).",
         "You are responsible for providing accurate billing and shipping information.",
       ],
     },
@@ -52,21 +53,22 @@ export default function TermsPage() {
       title: "Shipping and Delivery",
       icon: FileText,
       content: [
-        "Shipping costs and delivery times vary based on location and shipping method selected.",
-        "Risk of loss and title for products pass to you upon delivery to the carrier.",
-        "We are not responsible for delays caused by shipping carriers or customs.",
-        "International customers are responsible for any customs duties, taxes, or fees.",
+        "We currently ship to all major cities and towns across India.",
+        "Standard delivery timeline: 3–7 business days depending on location.",
+        "Free shipping is available on eligible prepaid orders.",
+        "For Cash on Delivery (COD) orders, additional handling may apply.",
+        "We partner with trusted Indian courier services like Delhivery, Blue Dart, and India Post.",
       ],
     },
     {
       title: "Returns and Refunds",
       icon: Scale,
       content: [
-        "We offer a 30-day return policy for unopened products in original packaging.",
-        "Products must be returned in their original condition to be eligible for refund.",
-        "Return shipping costs are the responsibility of the customer unless the return is due to our error.",
-        "Refunds will be processed within 5-10 business days after we receive the returned items.",
-        "Some products may be excluded from returns for hygiene reasons.",
+        "Returns accepted within 7 days of delivery only if the product is damaged, expired, or incorrect.",
+        "To initiate a return, email us at care@kishmi.in with your order ID and product image.",
+        "Once approved, a reverse pickup will be scheduled.",
+        "Refunds are processed within 7–10 working days post return pickup and quality check.",
+        "Refunds will be made to the original payment method. COD orders will be refunded via bank transfer.",
       ],
     },
     {
@@ -112,8 +114,8 @@ export default function TermsPage() {
       title: "Governing Law",
       icon: Shield,
       content: [
-        "These terms and conditions are governed by and construed in accordance with the laws of New York, United States.",
-        "Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts of New York.",
+        "These terms and conditions are governed by and construed in accordance with the laws of India.",
+        "Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts of India.",
         "If any provision of these terms is found to be invalid, the remaining provisions shall remain in full force and effect.",
       ],
     },
@@ -164,7 +166,7 @@ export default function TermsPage() {
             </motion.div>
 
             <motion.h1
-              className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -224,7 +226,7 @@ export default function TermsPage() {
                         >
                           <section.icon size={28} />
                         </motion.div>
-                        <h2 className="font-playfair text-3xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                        <h2 className="font-montserrat text-3xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                           {section.title}
                         </h2>
                       </div>
@@ -271,14 +273,13 @@ export default function TermsPage() {
               viewport={{ once: true }}
               className="mt-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-8 rounded-2xl shadow-2xl"
             >
-              <h2 className="font-playfair text-2xl font-bold mb-4">Questions About These Terms?</h2>
+              <h2 className="font-montserrat text-2xl font-bold mb-4">Questions About These Terms?</h2>
               <p className="text-gray-300 leading-relaxed mb-4">
                 If you have any questions about these Terms & Conditions, please contact us:
               </p>
               <div className="space-y-2 text-gray-300">
-                <p><strong>Email:</strong> legal@kishmi.com</p>
-                <p><strong>Phone:</strong> +1 (555) 123-4567</p>
-                <p><strong>Address:</strong> 123 Beauty Avenue, New York, NY 10001</p>
+                <p><strong>Email:</strong> care@kishmi.in</p>
+                <p><strong>Response Time:</strong> Within 24 hours</p>
               </div>
             </motion.div>
 

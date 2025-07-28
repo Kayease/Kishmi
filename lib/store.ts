@@ -27,6 +27,7 @@ export interface User {
   name: string
   email: string
   avatar?: string
+  isAdmin?: boolean
 }
 
 export interface Address {
@@ -78,6 +79,8 @@ interface Store {
   isUserMenuOpen: boolean
   setUser: (user: User | null) => void
   setUserMenuOpen: (open: boolean) => void
+  login: (email: string, password: string) => boolean
+  loginAsAdmin: () => void
   logout: () => void
 
   // Quick View
@@ -213,6 +216,42 @@ export const useStore = create<Store>()(
       isUserMenuOpen: false,
       setUser: (user) => set({ user }),
       setUserMenuOpen: (open) => set({ isUserMenuOpen: open }),
+      login: (email, password) => {
+        // Admin credentials
+        if (email === "rustam@kayease.in" && password === "admin@123") {
+          const adminUser: User = {
+            id: "admin-1",
+            name: "Rustam Admin",
+            email: "rustam@kayease.in",
+            isAdmin: true,
+          }
+          set({ user: adminUser })
+          return true
+        }
+        
+        // Regular user login (dummy implementation)
+        if (email && password) {
+          const regularUser: User = {
+            id: Date.now().toString(),
+            name: email.split("@")[0],
+            email: email,
+            isAdmin: false,
+          }
+          set({ user: regularUser })
+          return true
+        }
+        
+        return false
+      },
+      loginAsAdmin: () => {
+        const adminUser: User = {
+          id: "admin-1",
+          name: "Rustam Admin",
+          email: "rustam@kayease.in",
+          isAdmin: true,
+        }
+        set({ user: adminUser })
+      },
       logout: () => set({ user: null, isUserMenuOpen: false }),
 
       // Quick View

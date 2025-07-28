@@ -2,7 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
-import { Award, Heart, Leaf, Users, Sparkles, Star, Globe, Shield } from "lucide-react"
+import { Award, Heart, Leaf, Users, Sparkles, Star, Globe, Shield, Eye, Zap, Target } from "lucide-react"
 
 export default function AboutPage() {
   const { scrollYProgress } = useScroll()
@@ -14,29 +14,29 @@ export default function AboutPage() {
       icon: Leaf,
       title: "Natural Ingredients",
       description:
-        "We source only the finest natural ingredients, ensuring our products are both effective and gentle on your skin.",
+        "We believe that beauty begins with purity. That's why we select only the finest natural and plant-based ingredients—carefully sourced for their skin-loving benefits. Every drop is crafted to be effective, gentle, and safe for everyday use.",
       gradient: "from-green-400 to-emerald-500",
       delay: 0.1,
     },
     {
       icon: Heart,
-      title: "Cruelty-Free",
+      title: "Cruelty-Free & Vegan",
       description:
-        "All our products are cruelty-free and vegan, reflecting our commitment to ethical beauty practices.",
+        "Our commitment to ethical beauty is unwavering. All Kishmi products are 100% cruelty-free, never tested on animals, and vegan-friendly—because we believe skincare should never come at the cost of kindness.",
       gradient: "from-pink-400 to-rose-500",
       delay: 0.2,
     },
     {
       icon: Award,
-      title: "Premium Quality",
-      description: "Each product undergoes rigorous testing to meet our high standards of quality and performance.",
+      title: "Premium Quality Assurance",
+      description: "We blend luxury with lab-tested performance. Each formulation goes through rigorous quality checks to ensure it meets the highest standards in safety, stability, and results—offering nothing but the best for your skin.",
       gradient: "from-yellow-400 to-amber-500",
       delay: 0.3,
     },
     {
       icon: Users,
       title: "Community Focused",
-      description: "We believe in building a community of individuals who appreciate the art of minimalist beauty.",
+      description: "We're more than just a skincare brand—we're a movement. We empower individuals to embrace minimalist beauty and self-care through meaningful conversations, education, and shared stories. Together, we're redefining what modern beauty stands for.",
       gradient: "from-blue-400 to-indigo-500",
       delay: 0.4,
     },
@@ -46,25 +46,25 @@ export default function AboutPage() {
     {
       year: "2020",
       title: "The Beginning",
-      description: "KISHMI was founded with a vision to create minimalist beauty products that enhance natural elegance.",
+      description: "KISHMI was founded with a vision to create clean, conscious elegance that highlights natural glow without compromise.",
       icon: Star,
     },
     {
       year: "2021",
       title: "First Collection",
-      description: "Launched our signature collection of premium lipsticks and foundations to critical acclaim.",
+      description: "Launched our signature collection of premium skincare and cosmetics, blending luxury with purity and ethical practices.",
       icon: Sparkles,
     },
     {
       year: "2022",
       title: "Global Expansion",
-      description: "Expanded to 15 countries, bringing our minimalist beauty philosophy to a global audience.",
+      description: "Expanded to 25+ countries, bringing our minimalist beauty philosophy and conscious beauty approach to a global audience.",
       icon: Globe,
     },
     {
       year: "2023",
       title: "Sustainability Focus",
-      description: "Introduced eco-friendly packaging and achieved carbon-neutral shipping across all markets.",
+      description: "Introduced eco-friendly packaging and achieved carbon-neutral shipping across all markets, reinforcing our commitment to responsibility.",
       icon: Shield,
     },
   ]
@@ -116,17 +116,35 @@ export default function AboutPage() {
               transition={{ duration: 1, delay: 0.2 }}
             >
               <span className="inline-block px-8 py-3 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm tracking-widest uppercase rounded-full shadow-lg">
-                ✨ Our Journey
+                ✨ About Us
               </span>
             </motion.div>
 
             <motion.h1
-              className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Our Story
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                Beauty is a
+              </span>{" "}
+              <span className="bg-gradient-to-r from-pink-600 to-rose-600 bg-clip-text text-transparent">
+                celebration
+              </span>{" "}
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                of
+              </span>{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                confidence
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                care, and
+              </span>{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                self-expression
+              </span>
             </motion.h1>
 
             <motion.div
@@ -135,12 +153,23 @@ export default function AboutPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
-                The Art of Minimalist Beauty
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+                We believe true beauty begins with{" "}
+                <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent font-medium">
+                  healthy skin
+                </span>{" "}
+                and shines through every swipe of makeup.
               </p>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                KISHMI was born from a simple belief: that true beauty lies in simplicity. We create premium cosmetics
-                that enhance your natural elegance without compromise.
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-4xl mx-auto">
+                That's why we've created a brand that blends{" "}
+                <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent font-medium">
+                  high-performance skincare
+                </span>{" "}
+                with{" "}
+                <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent font-medium">
+                  everyday glam
+                </span>{" "}
+                — empowering you to glow, naturally and effortlessly.
               </p>
             </motion.div>
 
@@ -181,23 +210,21 @@ export default function AboutPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-playfair text-4xl font-bold mb-6">The Art of Minimalist Beauty</h2>
+              <h2 className="font-montserrat text-4xl font-bold mb-6">The Art of Minimalist Beauty</h2>
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p>
-                  Founded in 2020, KISHMI emerged from a desire to create cosmetics that celebrate the beauty of
-                  simplicity. Our founder, inspired by the Japanese philosophy of "less is more," set out to develop
-                  products that would enhance natural beauty without overwhelming it.
+                  At KISHMI, we believe true beauty lies in simplicity. Born from a vision of clean, conscious elegance, we create premium skincare and cosmetics that highlight your natural glow—without compromise.
                 </p>
                 <p>
-                  Every product in our collection is carefully formulated using premium ingredients sourced from around
-                  the world. We believe that quality should never be compromised, which is why we work with leading
-                  cosmetic chemists to ensure each formula meets our exacting standards.
+                  Our skincare line is crafted with clean, effective, and skin-loving ingredients, while our makeup range enhances your features without masking your essence. From nourishing serums to lightweight foundations, every Kishmi product is designed to bring out the best in you.
                 </p>
                 <p>
-                  Today, KISHMI has grown into a global brand trusted by beauty enthusiasts who appreciate the elegance
-                  of minimalism. Our commitment to quality, sustainability, and ethical practices remains at the heart
-                  of everything we do.
+                  Rooted in purity, performance, and sustainability, Kishmi is proudly cruelty-free, ingredient-conscious, and committed to making you feel as good as you look.
                 </p>
+                <div className="mt-8 p-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl border-l-4 border-pink-500">
+                  <p className="text-lg font-semibold text-gray-800 mb-2">Glow. Express. Empower.</p>
+                  <p className="text-gray-600">That's the Kishmi way.</p>
+                </div>
               </div>
             </motion.div>
 
@@ -215,6 +242,94 @@ export default function AboutPage() {
                 className="w-full h-auto rounded-lg shadow-2xl"
               />
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Values Section */}
+      <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, #000 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }} />
+        </div>
+
+        <div className="container-max section-padding relative z-10">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className="inline-block px-6 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm tracking-widest uppercase mb-6 rounded-full"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              ✨ What Drives Us
+            </motion.span>
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              Our Philosophy
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              At Kishmi, our philosophy is rooted in conscious beauty, backed by care, science, and responsibility.
+            </p>
+            <p className="text-lg text-gray-500 max-w-4xl mx-auto leading-relaxed mt-4">
+              These core values shape every product we create and every decision we make—ensuring that your skin gets the love it truly deserves.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <motion.div
+                key={value.title}
+                className="group relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: value.delay }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+              >
+                <div className="relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden">
+                  {/* Gradient Background on Hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                  
+                  {/* Icon with Gradient Background */}
+                  <motion.div
+                    className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${value.gradient} text-white rounded-2xl mb-6 shadow-lg`}
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <value.icon size={28} />
+                  </motion.div>
+
+                  <h3 className="font-montserrat text-xl font-bold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                    {value.description}
+                  </p>
+
+                  {/* Decorative Element */}
+                  <motion.div
+                    className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    animate={{
+                      scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Number.POSITIVE_INFINITY,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -238,8 +353,8 @@ export default function AboutPage() {
             >
               ✨ Our Journey
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              Milestones
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              Our Story
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Key moments that shaped KISHMI into the brand it is today.
@@ -270,7 +385,7 @@ export default function AboutPage() {
                           <item.icon size={24} />
                         </div>
                       </div>
-                      <h3 className="font-playfair text-2xl font-bold mb-2 text-gray-900">{item.title}</h3>
+                      <h3 className="font-montserrat text-2xl font-bold mb-2 text-gray-900">{item.title}</h3>
                       <p className="text-gray-600 leading-relaxed mb-4">{item.description}</p>
                       <span className="text-sm font-medium text-gray-500 tracking-wider uppercase">{item.year}</span>
                     </motion.div>
@@ -290,91 +405,6 @@ export default function AboutPage() {
                 </motion.div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Enhanced Values Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, #000 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
-          }} />
-        </div>
-
-        <div className="container-max section-padding relative z-10">
-          <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <motion.span
-              className="inline-block px-6 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm tracking-widest uppercase mb-6 rounded-full"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              ✨ Our Values
-            </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              What Drives Us
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              These core principles guide everything we do, from product development to customer service.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.title}
-                className="group relative"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: value.delay }}
-                viewport={{ once: true }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden">
-                  {/* Gradient Background on Hover */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                  
-                  {/* Icon with Gradient Background */}
-                  <motion.div
-                    className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${value.gradient} text-white rounded-2xl mb-6 shadow-lg`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <value.icon size={28} />
-                  </motion.div>
-
-                  <h3 className="font-playfair text-xl font-bold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                    {value.description}
-                  </p>
-
-                  {/* Decorative Element */}
-                  <motion.div
-                    className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                    animate={{
-                      scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                      duration: 2,
-                      repeat: Number.POSITIVE_INFINITY,
-                      ease: "easeInOut",
-                    }}
-                  />
-                </div>
-              </motion.div>
-            ))}
           </div>
         </div>
       </section>
@@ -418,7 +448,7 @@ export default function AboutPage() {
             >
               ✨ Leadership
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               A Note from Our Founder
             </h2>
           </motion.div>
@@ -436,7 +466,7 @@ export default function AboutPage() {
                   <div className="absolute -inset-4 bg-gradient-to-r from-pink-200 to-purple-200 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity duration-500" />
                   <div className="relative">
                     <Image
-                      src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=500&fit=crop&crop=center"
+                      src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                       alt="KISHMI Founder - Sarah Chen"
                       width={400}
                       height={500}
@@ -465,8 +495,7 @@ export default function AboutPage() {
                     "
                   </motion.div>
                   <blockquote className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light italic pl-8">
-                    Beauty should be effortless, not overwhelming. When I started KISHMI, I wanted to create products
-                    that would enhance the natural confidence that already exists within each person.
+                    At KISHMI, beauty begins with honesty — in our ingredients, our process, and our purpose. I didn't set out to hide flaws, but to highlight the quiet strength and elegance that already lives in each of us.
                   </blockquote>
                 </div>
 
@@ -477,9 +506,7 @@ export default function AboutPage() {
                   transition={{ duration: 0.8, delay: 0.7 }}
                   viewport={{ once: true }}
                 >
-                  Our minimalist approach isn't just about aesthetics—it's about celebrating the authentic you. Every
-                  product we create is a testament to the belief that true beauty comes from within, and our role is
-                  simply to help it shine.
+                  Every formula we craft is a reflection of self-respect and simplicity. Because beauty should never be about becoming someone else — it's about coming home to yourself.
                 </motion.p>
 
                 <motion.div
@@ -490,8 +517,8 @@ export default function AboutPage() {
                   viewport={{ once: true }}
                 >
                   <div>
-                    <p className="font-playfair text-2xl font-bold text-gray-900">Sarah Chen</p>
-                    <p className="text-gray-600 text-lg">Founder & Creative Director</p>
+                    <p className="font-montserrat text-2xl font-bold text-gray-900">Sarah Chen</p>
+                    <p className="text-gray-600 text-lg">Founder & Creative Director, KISHMI</p>
                   </div>
                   <motion.div
                     className="w-16 h-16 bg-gradient-to-br from-gray-900 to-gray-700 rounded-full flex items-center justify-center"
@@ -554,7 +581,7 @@ export default function AboutPage() {
             >
               ✨ Our Impact
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-gray-200 to-white bg-clip-text text-transparent">
               By the Numbers
             </h2>
           </motion.div>

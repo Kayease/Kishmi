@@ -23,6 +23,7 @@ export default function RegisterPage() {
     subscribeNewsletter: true,
   })
   const [isLoading, setIsLoading] = useState(false)
+  const [showTermsModal, setShowTermsModal] = useState(false)
 
   const { setUser } = useStore()
   const router = useRouter()
@@ -59,7 +60,7 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen flex">
       {/* Left Side - Branding */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gray-50 flex-col justify-center p-12">
+      <div className="hidden lg:flex lg:w-1/2 bg-gray-50 flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
@@ -224,9 +225,10 @@ export default function RegisterPage() {
                   type="checkbox"
                   name="agreeToTerms"
                   checked={formData.agreeToTerms}
-                  onChange={handleChange}
+                  readOnly
                   required
                   className="w-4 h-4 text-black border-gray-300 rounded focus:ring-black mt-1"
+                  onClick={() => setShowTermsModal(true)}
                 />
                 <span className="ml-2 text-sm text-gray-600">
                   I agree to the{" "}
@@ -263,6 +265,39 @@ export default function RegisterPage() {
               <span>Your information is protected with SSL encryption</span>
             </div>
           </form>
+
+          {showTermsModal && (
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-40">
+              <div className="bg-white rounded-lg shadow-lg max-w-md w-full p-6">
+              <h3 className="text-xl font-bold mb-4">Terms & Conditions Summary</h3>
+              <div className="text-gray-700 mb-6 max-h-60 overflow-y-auto">
+                <p>
+                By creating an account, you agree to our Terms of Service and Privacy Policy. 
+                Your data will be securely stored and used to enhance your experience. 
+                Please review the full documents for details.
+                </p>
+              </div>
+              <button
+                className="w-full bg-black text-white py-2 rounded-lg font-medium hover:bg-gray-800 transition mb-2"
+                onClick={() => {
+                setShowTermsModal(false)
+                setFormData((prev) => ({ ...prev, agreeToTerms: true }))
+                }}
+              >
+                Accept & Continue
+              </button>
+              <button
+                className="w-full bg-gray-200 text-black py-2 rounded-lg font-medium hover:bg-gray-300 transition"
+                onClick={() => {
+                window.open("/terms", "_blank")
+                }}
+                type="button"
+              >
+                View Full Terms & Conditions
+              </button>
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </div>

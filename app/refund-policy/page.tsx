@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { RotateCcw, Clock, Shield, CreditCard, Package, AlertTriangle } from "lucide-react"
+import { RotateCcw, Clock, Shield, CreditCard, Package, AlertTriangle, Mail, CheckCircle } from "lucide-react"
 
 export default function RefundPolicyPage() {
   const sections = [
@@ -9,7 +9,7 @@ export default function RefundPolicyPage() {
       title: "Return Window",
       icon: Clock,
       content: [
-        "We offer a 30-day return window from the date of delivery for most products.",
+        "Returns accepted within 7 days of delivery only if the product is damaged, expired, or incorrect.",
         "Items must be returned in their original, unopened condition with all original packaging.",
         "Products that have been opened, used, or damaged cannot be returned for hygiene and safety reasons.",
         "The return window begins from the date of delivery, not the date of purchase.",
@@ -17,13 +17,38 @@ export default function RefundPolicyPage() {
       gradient: "from-blue-400 to-cyan-500",
     },
     {
+      title: "Return Process",
+      icon: RotateCcw,
+      content: [
+        "To initiate a return, email us at care@kishmi.in with your order ID and product image.",
+        "Once approved, a reverse pickup will be scheduled.",
+        "Package items securely in original packaging.",
+        "Include the order ID and original receipt.",
+        "We partner with trusted Indian courier services for reverse pickup.",
+      ],
+      gradient: "from-purple-400 to-indigo-500",
+    },
+    {
+      title: "Refund Processing",
+      icon: CreditCard,
+      content: [
+        "Refunds are processed within 7–10 working days post return pickup and quality check.",
+        "Refunds will be made to the original payment method.",
+        "COD orders will be refunded via bank transfer.",
+        "Original shipping costs are non-refundable unless the return is due to our error.",
+        "Return shipping costs are covered by KISHMI for approved returns.",
+      ],
+      gradient: "from-yellow-400 to-orange-500",
+    },
+    {
       title: "Eligible Items",
       icon: Package,
       content: [
+        "Damaged products received in original condition",
+        "Expired products (if received past expiry date)",
+        "Incorrect products shipped by our error",
         "Unopened cosmetic products in original packaging",
         "Unused skincare items with intact seals",
-        "Beauty tools and accessories in original condition",
-        "Gift sets that have not been opened or used",
       ],
       gradient: "from-green-400 to-emerald-500",
     },
@@ -32,37 +57,12 @@ export default function RefundPolicyPage() {
       icon: AlertTriangle,
       content: [
         "Opened or used cosmetic products (for hygiene reasons)",
-        "Custom or personalized items",
         "Products without original packaging or labels",
         "Items damaged by misuse or normal wear",
         "Products purchased with special promotions or discounts (unless defective)",
+        "Personal care items for health and safety reasons",
       ],
       gradient: "from-red-400 to-pink-500",
-    },
-    {
-      title: "Return Process",
-      icon: RotateCcw,
-      content: [
-        "Contact our customer service team to initiate a return",
-        "Receive a Return Merchandise Authorization (RMA) number",
-        "Package items securely in original packaging",
-        "Include the RMA number and original receipt",
-        "Ship items back using a trackable shipping method",
-        "We recommend purchasing shipping insurance for valuable returns",
-      ],
-      gradient: "from-purple-400 to-indigo-500",
-    },
-    {
-      title: "Refund Processing",
-      icon: CreditCard,
-      content: [
-        "Refunds are processed within 5-10 business days after we receive returned items",
-        "Refunds are issued to the original payment method used for purchase",
-        "Original shipping costs are non-refundable unless the return is due to our error",
-        "Return shipping costs are the customer's responsibility",
-        "Processing fees may apply for certain payment methods",
-      ],
-      gradient: "from-yellow-400 to-orange-500",
     },
     {
       title: "Damaged or Defective Items",
@@ -82,27 +82,27 @@ export default function RefundPolicyPage() {
     {
       step: "01",
       title: "Contact Us",
-      description: "Reach out to our customer service team via email or phone to initiate your return request.",
+      description: "Email us at care@kishmi.in with your order ID and product image.",
     },
     {
       step: "02",
-      title: "Get RMA Number",
-      description: "Receive your Return Merchandise Authorization number and return instructions.",
+      title: "Get Approval",
+      description: "Receive approval and return instructions from our customer service team.",
     },
     {
       step: "03",
-      title: "Package Items",
-      description: "Carefully package your items in original packaging with the RMA number included.",
+      title: "Schedule Pickup",
+      description: "A reverse pickup will be scheduled with our trusted courier partners.",
     },
     {
       step: "04",
-      title: "Ship Back",
-      description: "Send items back using a trackable shipping method to our returns center.",
+      title: "Quality Check",
+      description: "We'll inspect your return and verify the product condition.",
     },
     {
       step: "05",
-      title: "Processing",
-      description: "We'll inspect your return and process your refund within 5-10 business days.",
+      title: "Refund Process",
+      description: "Refunds are processed within 7–10 working days to your original payment method.",
     },
   ]
 
@@ -151,12 +151,12 @@ export default function RefundPolicyPage() {
             </motion.div>
 
             <motion.h1
-              className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Refund Policy
+              Returns & Refund Policy
             </motion.h1>
 
             <motion.div
@@ -165,10 +165,10 @@ export default function RefundPolicyPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
                 Your Satisfaction is Our Priority
               </p>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
                 We want you to be completely satisfied with your KISHMI purchase. If you're not happy with your order, we're here to help.
               </p>
               <p className="text-lg text-gray-500">
@@ -206,7 +206,7 @@ export default function RefundPolicyPage() {
             >
               ✨ Process
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               How to Return
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -237,7 +237,7 @@ export default function RefundPolicyPage() {
                       <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-gray-200 -translate-y-1/2" />
                     )}
                   </motion.div>
-                  <h3 className="font-playfair text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
+                  <h3 className="font-montserrat text-xl font-bold mb-3 text-gray-900">{step.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{step.description}</p>
                 </motion.div>
               ))}
@@ -265,7 +265,7 @@ export default function RefundPolicyPage() {
             >
               ✨ Details
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               Policy Details
             </h2>
           </motion.div>
@@ -296,7 +296,7 @@ export default function RefundPolicyPage() {
                         <section.icon size={24} />
                       </motion.div>
 
-                      <h3 className="font-playfair text-xl font-bold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                      <h3 className="font-montserrat text-xl font-bold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                         {section.title}
                       </h3>
 
@@ -351,7 +351,7 @@ export default function RefundPolicyPage() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">Need Help with a Return?</h2>
+              <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">Need Help with a Return?</h2>
               <p className="text-xl text-gray-300 leading-relaxed mb-8">
                 Our customer service team is here to assist you with any questions about returns or refunds.
               </p>
@@ -359,24 +359,24 @@ export default function RefundPolicyPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Package size={24} />
+                    <Mail size={24} />
                   </div>
                   <h3 className="font-bold mb-2">Email Support</h3>
-                  <p className="text-gray-300">returns@kishmi.com</p>
+                  <p className="text-gray-300">care@kishmi.in</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Clock size={24} />
                   </div>
-                  <h3 className="font-bold mb-2">Phone Support</h3>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <h3 className="font-bold mb-2">Response Time</h3>
+                  <p className="text-gray-300">Within 24 hours</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Shield size={24} />
+                    <CheckCircle size={24} />
                   </div>
-                  <h3 className="font-bold mb-2">Live Chat</h3>
-                  <p className="text-gray-300">Available 9am-6pm EST</p>
+                  <h3 className="font-bold mb-2">Easy Process</h3>
+                  <p className="text-gray-300">Simple return process</p>
                 </div>
               </div>
             </motion.div>

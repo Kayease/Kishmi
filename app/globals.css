@@ -11,20 +11,80 @@
   body {
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
   }
 
   * {
     scroll-behavior: smooth;
+  }
+
+  /* Font family definition */
+  .font-montserrat {
+    font-family: var(--font-montserrat), sans-serif;
+  }
+
+  /* Typography hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  h5 {
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+
+  h6 {
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  p, span, div {
+    font-family: var(--font-montserrat), sans-serif;
+    line-height: 1.6;
+  }
+
+  /* Clean text styles */
+  .text-clean {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 400;
   }
 }
 
 @layer components {
   .btn-primary {
     @apply bg-black text-white px-6 sm:px-8 py-3 sm:py-4 font-medium tracking-wider text-sm uppercase transition-all duration-500 hover:bg-gray-800 hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transform;
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 500;
   }
 
   .btn-secondary {
     @apply border-2 border-black text-black px-6 sm:px-8 py-3 sm:py-4 font-medium tracking-wider text-sm uppercase transition-all duration-500 hover:bg-black hover:text-white hover:scale-105 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-400 transform;
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 500;
   }
 
   .section-padding {
@@ -37,6 +97,7 @@
 
   .gradient-text {
     @apply bg-gradient-to-r from-black to-gray-600 bg-clip-text text-transparent;
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   .card-hover {
@@ -69,30 +130,38 @@
     overflow: hidden;
   }
 
-  /* Responsive text sizes */
+  /* Responsive text sizes with Montserrat */
   .responsive-text-xs {
     @apply text-xs sm:text-sm;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-sm {
     @apply text-sm sm:text-base;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-base {
     @apply text-base sm:text-lg;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-lg {
     @apply text-lg sm:text-xl;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-xl {
     @apply text-xl sm:text-2xl;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-2xl {
     @apply text-2xl sm:text-3xl;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-3xl {
     @apply text-3xl sm:text-4xl lg:text-5xl;
+    font-family: var(--font-montserrat), sans-serif;
   }
   .responsive-text-4xl {
     @apply text-4xl sm:text-5xl lg:text-6xl;
+    font-family: var(--font-montserrat), sans-serif;
   }
 
   /* Responsive spacing */
@@ -156,6 +225,29 @@
 
   .animate-bounce-slow {
     animation: bounce 3s infinite;
+  }
+
+  /* Typography utilities for Montserrat */
+  .heading-clean {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 600;
+  }
+
+  .body-clean {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 400;
+  }
+
+  .nav-text {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+
+  .brand-text {
+    font-family: var(--font-montserrat), sans-serif;
+    font-weight: 700;
+    font-style: italic;
   }
 }
 

@@ -1,13 +1,10 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import Image from "next/image"
-import Link from "next/link"
+import { useScroll } from "framer-motion"
+
 import {
-  ArrowRight,
   Star,
-  Play,
   Award,
   Users,
   Sparkles,
@@ -30,15 +27,7 @@ import BrandStoryTeaser from "@/components/BrandStoryTeaser"
 
 export default function HomePage() {
   const { addToCart, setQuickViewProduct } = useStore()
-  const { scrollYProgress } = useScroll()
-  const heroRef = useRef<HTMLDivElement>(null)
   const [currentProductIndex, setCurrentProductIndex] = useState(0)
-
-  // Hero scroll animations
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"])
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 1.2])
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.5], [1, 0.8, 0])
-  const textScale = useTransform(scrollYProgress, [0, 0.3], [1, 1.1])
 
   const featuredProducts = [
     {
@@ -74,7 +63,7 @@ export default function HomePage() {
       id: 3,
       name: "Luxury Eye Palette",
       price: 95,
-      image: "https://images.unsplash.com/photo-1583241800698-9c2e0c3e9c2e?w=500&h=600&fit=crop&crop=center",
+      image: "https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/beminimalist.co/cdn/shop/files/SPF50New.jpg?crop=center&height=630&v=1721379190&width=420",
       badge: "New",
       description:
         "Unleash your creativity with our most versatile eyeshadow palette. Featuring 12 highly pigmented shades in both matte and shimmer finishes, perfect for creating endless eye looks from subtle to dramatic.",
@@ -121,7 +110,7 @@ export default function HomePage() {
       id: "eyes",
       name: "Eyes",
       description: "Dramatic looks and precise application",
-      image: "https://images.unsplash.com/photo-1583241800698-9c2e0c3e9c2e?w=400&h=500&fit=crop&crop=center",
+      image: "https://cdn.shopify.com/s/files/1/0582/2885/files/Eyeliner_Lauren_Alice.jpg?8625929861566956326",
       productCount: 15,
       gradient: "from-purple-500 to-indigo-500",
     },
@@ -194,8 +183,6 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [currentProductIndex, featuredProducts.length]);
 
-  const currentProduct = featuredProducts[currentProductIndex]
-  const isEven = currentProductIndex % 2 === 0
 
   return (
     <>
@@ -209,60 +196,63 @@ export default function HomePage() {
         <FeaturedCategories featuredCategories={featuredCategories} />
         <BestSellers
           products={[
-                  {
-                    id: 1,
-                    name: "Salicylic Acid + LHA 2% Cleanser",
-                    description: "Acne, Breakouts & Oiliness",
-                    price: 299,
-                    originalPrice: 399,
-                    rating: 4.5,
-                    reviews: 1247,
-                    image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&h=500&fit=crop&crop=center",
-                    badge: "Best Seller",
-                    onSale: true,
-                    gradient: "from-blue-100 to-cyan-100"
-                  },
-                  {
-                    id: 2,
-                    name: "SPF 50 Sunscreen",
-                    description: "Sun protection, UV exposure / damage",
-                    price: 399,
-                    originalPrice: 499,
-                    rating: 4.0,
-                    reviews: 892,
-                    image: "https://images.unsplash.com/photo-1556228578-dd6f8c2e0c2d?w=400&h=500&fit=crop&crop=center",
-                    badge: "Protection",
-                    onSale: true,
-                    gradient: "from-orange-100 to-yellow-100",
-                    hasSelectSize: true
-                  },
-                  {
-                    id: 3,
-                    name: "Salicylic Acid 2% Face Serum",
-                    description: "Acne, Oily Skin, Blackheads & Irritation",
-                    price: 549,
-                    originalPrice: 699,
-                    rating: 4.0,
-                    reviews: 634,
-                    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&h=500&fit=crop&crop=center",
-                    badge: "Trending",
-                    onSale: true,
-                    gradient: "from-green-100 to-emerald-100",
-                    hasSelectSize: true
-                  },
-                  {
-                    id: 4,
-                    name: "Vitamin C 10% Face Serum",
-                    description: "Dullness, Spots & Loss of Elasticity",
-                    price: 699,
-                    rating: 4.0,
-                    reviews: 456,
-                    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=500&fit=crop&crop=center",
-                    badge: "Popular",
-                    onSale: false,
-                    gradient: "from-purple-100 to-pink-100"
-                  }
-                ]}
+            {
+              id: 1,
+              name: "Salicylic Acid + LHA 2% Cleanser",
+              description: "Acne, Breakouts & Oiliness",
+              price: 299,
+              originalPrice: 399,
+              rating: 4.5,
+              reviews: 1247,
+              image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&h=800&fit=crop&crop=center&auto=format&q=80",
+              badge: "Best Seller",
+              onSale: true,
+              gradient: "from-blue-100 to-cyan-100",
+              features: ["Deep cleansing", "Pore refining", "Oil control", "Gentle exfoliation"]
+            },
+            {
+              id: 2,
+              name: "SPF 50 Sunscreen",
+              description: "Sun protection, UV exposure / damage",
+              price: 399,
+              originalPrice: 499,
+              rating: 4.0,
+              reviews: 892,
+              image: "https://images.unsplash.com/photo-1698912198250-fb0c5ecccc6e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              badge: "Protection",
+              onSale: true,
+              gradient: "from-orange-100 to-yellow-100",
+              features: ["Broad spectrum", "Water resistant", "Non-greasy", "Lightweight formula"]
+            },
+            {
+              id: 3,
+              name: "Salicylic Acid 2% Face Serum",
+              description: "Acne, Oily Skin, Blackheads & Irritation",
+              price: 549,
+              originalPrice: 699,
+              rating: 4.0,
+              reviews: 634,
+              image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&h=800&fit=crop&crop=center&auto=format&q=80",
+
+              badge: "Trending",
+              onSale: true,
+              gradient: "from-green-100 to-emerald-100",
+              features: ["Acne treatment", "Pore minimizing", "Anti-inflammatory", "Fast absorption"]
+            },
+            {
+              id: 4,
+              name: "Vitamin C 10% Face Serum",
+              description: "Dullness, Spots & Loss of Elasticity",
+              price: 699,
+              rating: 4.0,
+              reviews: 456,
+              image: "https://images.unsplash.com/photo-1696025522422-aa9a74e4f3d5?q=80&w=765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              badge: "Popular",
+              onSale: false,
+              gradient: "from-purple-100 to-pink-100",
+              features: ["Brightening", "Anti-aging", "Antioxidant rich", "Collagen boost"]
+            }
+          ]}
           handleAddToCart={handleAddToCart}
           handleQuickView={handleQuickView}
         />
@@ -270,37 +260,37 @@ export default function HomePage() {
         <TrustedStats stats={stats} />
         <WhyChooseKishmi features={features} />
         <BeautyJournal articles={[
-                {
-                  id: 1,
-                  title: "The Art of Minimalist Beauty",
-                  excerpt: "Discover how to achieve effortless elegance with a simplified beauty routine that enhances your natural radiance.",
-                  category: "skincare",
-                  readTime: "8 min read",
-                  author: "Sophia Chen",
-                  date: "Jan 15, 2024",
-                  gradient: "from-rose-200 to-pink-200"
-                },
-                {
-                  id: 2,
-                  title: "Bold Lips for Every Occasion",
-                  excerpt: "From subtle everyday looks to dramatic evening statements, master the art of bold lip color.",
-                  category: "makeup",
-                  readTime: "5 min read",
-                  author: "Isabella Martinez",
-                  date: "Jan 10, 2024",
-                  gradient: "from-purple-200 to-rose-200"
-                },
-                {
-                  id: 3,
-                  title: "2024 Beauty Trends",
-                  excerpt: "Explore the emerging beauty trends that will define 2024, from innovative formulas to sustainable practices.",
-                  category: "trends",
-                  readTime: "7 min read",
-                  author: "Aria Thompson",
-                  date: "Jan 8, 2024",
-                  gradient: "from-blue-200 to-purple-200"
-                }
-              ]} />
+          {
+            id: 1,
+            title: "The Art of Minimalist Beauty",
+            excerpt: "Discover how to achieve effortless elegance with a simplified beauty routine that enhances your natural radiance.",
+            category: "skincare",
+            readTime: "8 min read",
+            author: "Sophia Chen",
+            date: "Jan 15, 2024",
+            gradient: "from-rose-200 to-pink-200"
+          },
+          {
+            id: 2,
+            title: "Bold Lips for Every Occasion",
+            excerpt: "From subtle everyday looks to dramatic evening statements, master the art of bold lip color.",
+            category: "makeup",
+            readTime: "5 min read",
+            author: "Isabella Martinez",
+            date: "Jan 10, 2024",
+            gradient: "from-purple-200 to-rose-200"
+          },
+          {
+            id: 3,
+            title: "2024 Beauty Trends",
+            excerpt: "Explore the emerging beauty trends that will define 2024, from innovative formulas to sustainable practices.",
+            category: "trends",
+            readTime: "7 min read",
+            author: "Aria Thompson",
+            date: "Jan 8, 2024",
+            gradient: "from-blue-200 to-purple-200"
+          }
+        ]} />
         <BrandStoryTeaser />
       </div>
       <QuickViewModal />

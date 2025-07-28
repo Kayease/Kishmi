@@ -35,6 +35,7 @@ export default function DisclaimerPage() {
       title: "Usage and Results",
       icon: Zap,
       content: [
+        "All product results vary based on individual skin types.",
         "Results may vary from person to person based on individual factors",
         "Follow application instructions for best results",
         "Some products may require consistent use to see desired effects",
@@ -100,6 +101,7 @@ export default function DisclaimerPage() {
       title: "Limitation of Liability",
       icon: AlertTriangle,
       content: [
+        "KISHMI is not liable for allergic reactions or misuse of the product.",
         "Use of our products and website is at your own risk",
         "We are not liable for any direct, indirect, or consequential damages",
         "Our liability is limited to the maximum extent permitted by law",
@@ -179,7 +181,7 @@ export default function DisclaimerPage() {
             </motion.div>
 
             <motion.h1
-              className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
@@ -193,10 +195,10 @@ export default function DisclaimerPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
                 Important Information for Safe Use
               </p>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
                 Please read this disclaimer carefully before using KISHMI products or services. Your safety and satisfaction are our top priorities.
               </p>
               <p className="text-lg text-gray-500">
@@ -234,7 +236,7 @@ export default function DisclaimerPage() {
             >
               ✨ Safety First
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               Safety Guidelines
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
@@ -268,7 +270,7 @@ export default function DisclaimerPage() {
                     >
                       {note.icon}
                     </motion.div>
-                    <h3 className="font-playfair text-xl font-bold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                    <h3 className="font-montserrat text-xl font-bold mb-4 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                       {note.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
@@ -301,7 +303,7 @@ export default function DisclaimerPage() {
             >
               ✨ Details
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
               Detailed Disclaimers
             </h2>
           </motion.div>
@@ -331,7 +333,7 @@ export default function DisclaimerPage() {
                         >
                           <disclaimer.icon size={24} />
                         </motion.div>
-                        <h3 className="font-playfair text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                        <h3 className="font-montserrat text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                           {disclaimer.title}
                         </h3>
                       </div>
@@ -390,7 +392,7 @@ export default function DisclaimerPage() {
               <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <AlertTriangle size={32} />
               </div>
-              <h2 className="font-playfair text-4xl md:text-5xl font-bold mb-6">In Case of Emergency</h2>
+              <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">In Case of Emergency</h2>
               <p className="text-xl text-red-100 leading-relaxed mb-8">
                 If you experience a severe allergic reaction or adverse effect from any of our products, seek immediate medical attention.
               </p>
@@ -420,10 +422,10 @@ export default function DisclaimerPage() {
                 >
                   <h3 className="font-bold mb-3">Contact Information</h3>
                   <div className="text-red-100 text-sm space-y-2 text-left">
-                    <p><strong>Emergency:</strong> Call 911 (US) or local emergency services</p>
-                    <p><strong>Poison Control:</strong> 1-800-222-1222 (US)</p>
-                    <p><strong>KISHMI Support:</strong> support@kishmi.com</p>
-                    <p><strong>24/7 Hotline:</strong> +1 (555) 123-4567</p>
+                    <p><strong>Emergency:</strong> Call 112 (India) or local emergency services</p>
+                    <p><strong>Poison Control:</strong> 1066 (India)</p>
+                    <p><strong>KISHMI Support:</strong> care@kishmi.in</p>
+                    <p><strong>Response Time:</strong> Within 24 hours</p>
                   </div>
                 </motion.div>
               </div>

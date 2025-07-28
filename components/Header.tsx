@@ -3,11 +3,12 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { ShoppingBag, Heart, User, Menu, X, Search, LogOut, Settings, Package, ChevronDown } from "lucide-react"
+import { ShoppingBag, Heart, User, Menu, X, Search, LogOut, Settings, Package, ChevronDown, Shield, MapPin, CreditCard } from "lucide-react"
 import { useStore } from "@/lib/store"
 import SearchModal from "./SearchModal"
 import CartDrawer from "./CartDrawer"
 import Image from "next/image"
+import { usePathname } from 'next/navigation';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -15,6 +16,10 @@ export default function Header() {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false)
   const userMenuRef = useRef<HTMLDivElement>(null)
   const shopDropdownRef = useRef<HTMLDivElement>(null)
+  const [showHeader, setShowHeader] = useState(true);
+  const lastScrollY = useRef(0);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   const { cartItems, setCartOpen, setSearchOpen, user, isUserMenuOpen, setUserMenuOpen, logout, wishlistItems } =
     useStore()
@@ -22,6 +27,19 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20)
+      if (window.scrollY < 10) {
+        setShowHeader(true);
+        lastScrollY.current = window.scrollY;
+        return;
+      }
+      if (window.scrollY > lastScrollY.current) {
+        // Scrolling down
+        setShowHeader(false);
+      } else if (window.scrollY < lastScrollY.current) {
+        // Scrolling up
+        setShowHeader(true);
+      }
+      lastScrollY.current = window.scrollY;
     }
 
     const handleClickOutside = (event: MouseEvent) => {
@@ -87,8 +105,8 @@ export default function Header() {
     <>
       <motion.header
         initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        animate={{ y: showHeader ? 0 : -120 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${isScrolled
           ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100"
           : "bg-white/10 backdrop-blur-md"
@@ -109,7 +127,7 @@ export default function Header() {
             {/* Centered Logo with tagline */}
             <Link href="/" className="absolute left-1/2 transform -translate-x-1/2 z-[110] flex flex-col items-center">
               <Image
-                src="/kishmi-logo.png"
+                src={isHome && !isScrolled ? "/Kishmi-white.png" : "/kishmi-logo.png"}
                 alt="Kishmi Cosmetics Logo"
                 width={180}
                 height={45}
@@ -117,7 +135,7 @@ export default function Header() {
                 className=""
               />
               <span
-                className={`text-xs font-medium tracking-wide ${typeof window !== "undefined" && window.location.pathname === "/"
+                className={`text-xs font-medium tracking-wide ${isHome
                   ? isScrolled
                     ? "text-black hover:text-gray-600"
                     : "text-white hover:text-gray-300"
@@ -181,7 +199,7 @@ export default function Header() {
                     className={`transition-transform duration-300 ${isShopDropdownOpen ? "rotate-180" : ""}`}
                   />
                   <span
-                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${typeof window !== "undefined" && window.location.pathname === "/"
+                    className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isHome
                       ? isScrolled
                         ? "bg-black"
                         : "bg-white"
@@ -253,7 +271,7 @@ export default function Header() {
                   >
                     {link.label}
                     <span
-                      className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${typeof window !== "undefined" && window.location.pathname === "/"
+                      className={`absolute -bottom-1 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full ${isHome
                         ? isScrolled
                           ? "bg-black"
                           : "bg-white"
@@ -277,7 +295,7 @@ export default function Header() {
                   priority
                 />
                 <span
-                  className={`text-base font-medium tracking-wide ${typeof window !== "undefined" && window.location.pathname === "/"
+                  className={`text-base font-medium tracking-wide ${isHome
                     ? isScrolled
                       ? "text-black hover:text-gray-600"
                       : "text-white hover:text-gray-300"
@@ -333,14 +351,44 @@ export default function Header() {
                           <div className="px-4 py-3 border-b border-gray-100">
                             <p className="font-medium">{user.name}</p>
                             <p className="text-sm text-gray-500">{user.email}</p>
+                            {user.isAdmin && (
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 mt-1">
+                                <Shield size={12} className="mr-1" />
+                                Admin
+                              </span>
+                            )}
+                          </div>
+
+                          {/* Admin Section */}
+                          {user.isAdmin && (
+                            <>
+                              <div className="px-4 py-2">
+                                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">Admin Panel</p>
+                              </div>
+                              <Link
+                                href="/admin/dashboard"
+                                className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
+                                onClick={() => setUserMenuOpen(false)}
+                              >
+                                <Shield size={18} />
+                                <span>Admin Dashboard</span>
+                              </Link>
+
+                              <div className="border-t border-gray-100 my-2"></div>
+                            </>
+                          )}
+
+                          {/* User Section */}
+                          <div className="px-4 py-2">
+                            <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide">My Account</p>
                           </div>
                           <Link
                             href="/account"
                             className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
                             onClick={() => setUserMenuOpen(false)}
                           >
-                            <Settings size={18} />
-                            <span>Account Settings</span>
+                            <User size={18} />
+                            <span>My Account</span>
                           </Link>
                           <Link
                             href="/account/orders"
@@ -350,6 +398,30 @@ export default function Header() {
                             <Package size={18} />
                             <span>My Orders</span>
                           </Link>
+                          <Link
+                            href="/account/addresses"
+                            className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <MapPin size={18} />
+                            <span>Saved Addresses</span>
+                          </Link>
+                          <Link
+                            href="/wishlist"
+                            className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors duration-200"
+                            onClick={() => setUserMenuOpen(false)}
+                          >
+                            <Heart size={18} />
+                            <span>Wishlist ({wishlistCount})</span>
+                          </Link>
+                          <button
+                            onClick={() => setCartOpen(true)}
+                            className="flex items-center space-x-3 px-4 py-3 hover:bg-gray-50 transition-colors duration-200 w-full text-left"
+                          >
+                            <ShoppingBag size={18} />
+                            <span>Cart ({cartItemsCount})</span>
+                          </button>
+                          <div className="border-t border-gray-100 my-2"></div>
                           <button
                             onClick={() => {
                               logout()
@@ -484,34 +556,112 @@ export default function Header() {
                         <div className="mb-4">
                           <p className="font-medium text-white">{user.name}</p>
                           <p className="text-sm text-gray-300">{user.email}</p>
+                          {user.isAdmin && (
+                            <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800 mt-2">
+                              <Shield size={12} className="mr-1" />
+                              Admin
+                            </span>
+                          )}
                         </div>
+
                         <div className="space-y-3">
-                          <Link
-                            href="/account"
-                            className="flex items-center space-x-3 text-lg font-medium text-white"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            <Settings size={20} />
-                            <span>Account</span>
-                          </Link>
-                          <Link
-                            href="/wishlist"
-                            className="flex items-center space-x-3 text-lg font-medium text-white"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                          >
-                            <Heart size={20} />
-                            <span>Wishlist ({wishlistCount})</span>
-                          </Link>
-                          <button
-                            onClick={() => {
-                              logout()
-                              setIsMobileMenuOpen(false)
-                            }}
-                            className="flex items-center space-x-3 text-lg font-medium text-red-400"
-                          >
-                            <LogOut size={20} />
-                            <span>Sign Out</span>
-                          </button>
+                          {/* Admin Section */}
+                          {user.isAdmin && (
+                            <>
+                              <div className="mb-3">
+                                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Admin Panel</p>
+                                <div className="space-y-2 pl-2">
+                                  <Link
+                                    href="/admin/dashboard"
+                                    className="flex items-center space-x-3 text-base font-medium text-white"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    <Shield size={18} />
+                                    <span>Admin Dashboard</span>
+                                  </Link>
+                                  <Link
+                                    href="/admin/products"
+                                    className="flex items-center space-x-3 text-base font-medium text-white"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    <Package size={18} />
+                                    <span>Manage Products</span>
+                                  </Link>
+                                  <Link
+                                    href="/admin/orders"
+                                    className="flex items-center space-x-3 text-base font-medium text-white"
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                  >
+                                    <Settings size={18} />
+                                    <span>Manage Orders</span>
+                                  </Link>
+                                </div>
+                              </div>
+                              <div className="border-t border-white/20 pt-3"></div>
+                            </>
+                          )}
+
+                          {/* User Section */}
+                          <div className="mb-3">
+                            <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">My Account</p>
+                            <div className="space-y-2 pl-2">
+                              <Link
+                                href="/account"
+                                className="flex items-center space-x-3 text-base font-medium text-white"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <User size={18} />
+                                <span>My Account</span>
+                              </Link>
+                              <Link
+                                href="/account/orders"
+                                className="flex items-center space-x-3 text-base font-medium text-white"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <Package size={18} />
+                                <span>My Orders</span>
+                              </Link>
+                              <Link
+                                href="/account/addresses"
+                                className="flex items-center space-x-3 text-base font-medium text-white"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <MapPin size={18} />
+                                <span>Saved Addresses</span>
+                              </Link>
+                              <Link
+                                href="/wishlist"
+                                className="flex items-center space-x-3 text-base font-medium text-white"
+                                onClick={() => setIsMobileMenuOpen(false)}
+                              >
+                                <Heart size={18} />
+                                <span>Wishlist ({wishlistCount})</span>
+                              </Link>
+                              <button
+                                onClick={() => {
+                                  setCartOpen(true)
+                                  setIsMobileMenuOpen(false)
+                                }}
+                                className="flex items-center space-x-3 text-base font-medium text-white"
+                              >
+                                <ShoppingBag size={18} />
+                                <span>Cart ({cartItemsCount})</span>
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="border-t border-white/20 pt-3">
+                            <button
+                              onClick={() => {
+                                logout()
+                                setIsMobileMenuOpen(false)
+                              }}
+                              className="flex items-center space-x-3 text-base font-medium text-red-400"
+                            >
+                              <LogOut size={18} />
+                              <span>Sign Out</span>
+                            </button>
+                          </div>
                         </div>
                       </>
                     ) : (

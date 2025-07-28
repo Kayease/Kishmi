@@ -1,92 +1,69 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Truck, Globe, Clock, Shield, Package, MapPin } from "lucide-react"
+import { Truck, Globe, Clock, Shield, Package, MapPin, CheckCircle } from "lucide-react"
 
 export default function ShippingPage() {
-  const shippingOptions = [
-    {
-      title: "Standard Shipping",
-      icon: Truck,
-      time: "3-5 Business Days",
-      cost: "Free on orders $50+",
-      description: "Our most popular shipping option with reliable delivery times.",
-      gradient: "from-blue-400 to-cyan-500",
-    },
-    {
-      title: "Express Shipping",
-      icon: Clock,
-      time: "1-2 Business Days",
-      cost: "$9.99",
-      description: "Fast delivery for when you need your products quickly.",
-      gradient: "from-purple-400 to-pink-500",
-    },
-    {
-      title: "Overnight Shipping",
-      icon: Package,
-      time: "Next Business Day",
-      cost: "$19.99",
-      description: "Get your order the next business day (order by 2 PM EST).",
-      gradient: "from-red-400 to-orange-500",
-    },
-    {
-      title: "International Shipping",
-      icon: Globe,
-      time: "7-14 Business Days",
-      cost: "Varies by location",
-      description: "We ship to over 25 countries worldwide.",
-      gradient: "from-green-400 to-emerald-500",
-    },
-  ]
-
-  const internationalCountries = [
-    { region: "North America", countries: ["Canada", "Mexico"], flag: "🇨🇦" },
-    { region: "Europe", countries: ["United Kingdom", "France", "Germany", "Italy", "Spain", "Netherlands"], flag: "🇪🇺" },
-    { region: "Asia Pacific", countries: ["Australia", "Japan", "South Korea", "Singapore", "Hong Kong"], flag: "🌏" },
-    { region: "Other", countries: ["Brazil", "South Africa", "UAE", "Israel"], flag: "🌍" },
-  ]
-
   const shippingInfo = [
     {
       title: "Processing Time",
       icon: Clock,
       content: [
-        "Orders are processed within 1-2 business days",
-        "Orders placed after 2 PM EST will be processed the next business day",
+        "Orders are processed within 1–2 business days",
+        "Orders placed after 2 PM IST will be processed the next business day",
         "Weekend and holiday orders are processed on the next business day",
         "Custom or personalized items may require additional processing time",
       ],
     },
     {
-      title: "Packaging",
+      title: "Delivery Timeline",
+      icon: Truck,
+      content: [
+        "Standard delivery timeline: 3–7 business days depending on location",
+        "We currently ship to all major cities and towns across India",
+        "Free shipping is available on eligible prepaid orders",
+        "For Cash on Delivery (COD) orders, additional handling may apply",
+      ],
+    },
+    {
+      title: "Courier Partners",
       icon: Package,
+      content: [
+        "We partner with trusted Indian courier services",
+        "Delhivery, Blue Dart, and India Post",
+        "All orders include tracking information",
+        "You'll receive a tracking number via email/SMS once your order ships",
+      ],
+    },
+    {
+      title: "Delivery Details",
+      icon: Shield,
       content: [
         "All products are carefully packaged to prevent damage during shipping",
         "We use eco-friendly packaging materials whenever possible",
-        "Fragile items receive extra protective packaging",
         "Orders are discreetly packaged with no external branding",
-      ],
-    },
-    {
-      title: "Tracking",
-      icon: MapPin,
-      content: [
-        "All orders include tracking information",
-        "You'll receive a tracking number via email once your order ships",
-        "Track your order status in real-time through our website",
-        "SMS tracking updates available upon request",
-      ],
-    },
-    {
-      title: "Delivery",
-      icon: Shield,
-      content: [
-        "Signature confirmation required for orders over $100",
-        "We're not responsible for packages stolen after delivery",
-        "Delivery to PO boxes available for standard shipping only",
         "Business addresses may have faster delivery times",
       ],
     },
+  ]
+
+  const faqs = [
+    {
+      question: "Do you offer international shipping?",
+      answer: "No. Currently, we only ship within India."
+    },
+    {
+      question: "How do I track my order?",
+      answer: "Once dispatched, you'll receive a tracking link via email/SMS."
+    },
+    {
+      question: "Can I cancel or modify my order?",
+      answer: "Orders can be cancelled within 4 hours of placing them. Modification is not allowed post-payment."
+    },
+    {
+      question: "What payment methods do you accept?",
+      answer: "We accept all major credit cards, UPI, net banking, and Cash on Delivery (COD)."
+    }
   ]
 
   return (
@@ -134,12 +111,12 @@ export default function ShippingPage() {
             </motion.div>
 
             <motion.h1
-              className="font-playfair text-6xl md:text-7xl lg:text-8xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
+              className="font-montserrat text-4xl md:text-5xl lg:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent leading-tight"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Shipping Info
+              Shipping Information
             </motion.h1>
 
             <motion.div
@@ -148,18 +125,18 @@ export default function ShippingPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed font-light">
-                Fast, Reliable Delivery Worldwide
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-light">
+                Fast, Reliable Delivery Across India
               </p>
-              <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                We offer multiple shipping options to get your KISHMI products to you quickly and safely.
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                We currently ship to all major cities and towns across India with trusted courier partners.
               </p>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Shipping Options */}
+      {/* Key Information */}
       <section className="py-32 bg-white relative overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -184,185 +161,14 @@ export default function ShippingPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              ✨ Options
+              ✨ India Only
             </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              Shipping Options
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              Shipping Details
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Choose the shipping method that works best for you.
+              Everything you need to know about our shipping process in India.
             </p>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {shippingOptions.map((option, index) => (
-                <motion.div
-                  key={option.title}
-                  className="group relative"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -10 }}
-                >
-                  <div className="relative bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden h-full">
-                    {/* Gradient Background on Hover */}
-                    <div className={`absolute inset-0 bg-gradient-to-br ${option.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-                    
-                    <div className="relative z-10 text-center">
-                      {/* Icon with Gradient Background */}
-                      <motion.div
-                        className={`inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br ${option.gradient} text-white rounded-2xl mb-6 shadow-lg mx-auto`}
-                        whileHover={{ scale: 1.1, rotate: 5 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        <option.icon size={32} />
-                      </motion.div>
-
-                      <h3 className="font-playfair text-xl font-bold mb-2 text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
-                        {option.title}
-                      </h3>
-
-                      <div className="space-y-2 mb-4">
-                        <p className="text-lg font-semibold text-gray-800">{option.time}</p>
-                        <p className="text-sm font-medium text-gray-600">{option.cost}</p>
-                      </div>
-
-                      <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                        {option.description}
-                      </p>
-                    </div>
-
-                    {/* Decorative Element */}
-                    <motion.div
-                      className="absolute bottom-4 right-4 w-6 h-6 rounded-full bg-gradient-to-br from-gray-200 to-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      animate={{
-                        scale: [1, 1.2, 1],
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Number.POSITIVE_INFINITY,
-                        ease: "easeInOut",
-                      }}
-                    />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* International Shipping */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
-        <div className="container-max section-padding relative z-10">
-          <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <motion.span
-              className="inline-block px-6 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm tracking-widest uppercase mb-6 rounded-full"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              🌍 Global
-            </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              International Shipping
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We proudly ship KISHMI products to customers around the world.
-            </p>
-          </motion.div>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {internationalCountries.map((region, index) => (
-                <motion.div
-                  key={region.region}
-                  className="group relative"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="relative bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-100 overflow-hidden h-full">
-                    <div className="text-center">
-                      <div className="text-4xl mb-4">{region.flag}</div>
-                      <h3 className="font-playfair text-xl font-bold mb-4 text-gray-900">{region.region}</h3>
-                      <div className="space-y-2">
-                        {region.countries.map((country, countryIndex) => (
-                          <p key={countryIndex} className="text-gray-600 text-sm">
-                            {country}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              className="mt-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white p-8 rounded-2xl shadow-2xl"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="font-playfair text-2xl font-bold mb-4 text-center">International Shipping Notes</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-300">
-                <div>
-                  <h4 className="font-semibold mb-2">Customs & Duties</h4>
-                  <p className="text-sm">International customers are responsible for any customs duties, taxes, or fees imposed by their country.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Delivery Times</h4>
-                  <p className="text-sm">International delivery times may vary due to customs processing and local postal services.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Restrictions</h4>
-                  <p className="text-sm">Some products may be restricted in certain countries. We'll notify you if any items cannot be shipped.</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Currency</h4>
-                  <p className="text-sm">All prices are displayed in USD. Your bank may charge currency conversion fees.</p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Shipping Information */}
-      <section className="py-32 bg-white relative overflow-hidden">
-        <div className="container-max section-padding relative z-10">
-          <motion.div
-            className="text-center mb-20"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}
-          >
-            <motion.span
-              className="inline-block px-6 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm tracking-widest uppercase mb-6 rounded-full"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              ✨ Details
-            </motion.span>
-            <h2 className="font-playfair text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              Important Information
-            </h2>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -386,7 +192,7 @@ export default function ShippingPage() {
                       >
                         <info.icon size={24} />
                       </motion.div>
-                      <h3 className="font-playfair text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
+                      <h3 className="font-montserrat text-2xl font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
                         {info.title}
                       </h3>
                     </div>
@@ -401,6 +207,62 @@ export default function ShippingPage() {
                           <span className="leading-relaxed">{item}</span>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQs Section */}
+      <section className="py-32 bg-gradient-to-br from-gray-50 via-white to-gray-100 relative overflow-hidden">
+        <div className="container-max section-padding relative z-10">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+          >
+            <motion.span
+              className="inline-block px-6 py-2 bg-gradient-to-r from-gray-900 to-gray-700 text-white text-sm tracking-widest uppercase mb-6 rounded-full"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              ❓ FAQs
+            </motion.span>
+            <h2 className="font-montserrat text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="space-y-6">
+              {faqs.map((faq, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -2 }}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="w-8 h-8 bg-gradient-to-br from-gray-900 to-gray-700 text-white rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle size={16} />
+                    </div>
+                    <div>
+                      <h3 className="font-montserrat text-lg font-semibold text-gray-900 mb-2">
+                        {faq.question}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {faq.answer}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
